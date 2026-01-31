@@ -1,3 +1,9 @@
+© 2026 Ji Hua.
+This repository documents the Vibe + Coding methodology.
+Licensed under CC BY-NC-ND 4.0.
+
+Vibe + Coding — Version 0.1
+
 # 第四章｜实践流程 - Coding（Execution Workflow）
 
 在完成设计哲学、心智模型与方法论框架之后，本章进入 **Vibe + Coding 的实际执行层**。

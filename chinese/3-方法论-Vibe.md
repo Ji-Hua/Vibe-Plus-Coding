@@ -1,3 +1,9 @@
+© 2026 Ji Hua.
+This repository documents the Vibe + Coding methodology.
+Licensed under CC BY-NC-ND 4.0.
+
+Vibe + Coding — Version 0.1
+
 # 第三章｜方法论 - Vibe（Methodology Framework）
 
 在确立设计理念与心智模型之后，才有资格讨论一个真正现实的问题：
