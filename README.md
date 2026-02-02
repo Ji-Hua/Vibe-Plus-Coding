@@ -1,173 +1,147 @@
-[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-
 © 2026 Ji Hua.
 This repository documents the Vibe + Coding methodology.
 Licensed under CC BY-NC-ND 4.0.
 
-Vibe + Coding — Version 0.1
+Vibe + Coding — Version 0
 
-# Vibe + Coding
-## A New AI Coding Paradigm
+# Vibe + Coding  
+**Fixing AI Coding by Restoring Dependency Inversion**
 
-**Vibe + Coding is not a productivity trick.
-It is a redefinition of responsibility in AI-assisted software engineering.**
+## The Real Problem with AI Coding at Scale
 
-Most discussions about AI coding focus on prompts, tools, or model capability.
-This document is about something more fundamental:
+Most large-scale failures of AI Coding are **not caused by insufficient model capability**.
 
-> **Who thinks, who decides, and who is responsible — when AI writes code.**
+They are caused by a **systematic violation of the Dependency Inversion Principle (DIP)**.
 
-Vibe + Coding proposes a clear answer.
+In healthy software engineering:
 
-It separates *design* from *execution,*
-*thinking* from *doing,*
-and *ownership* from *automation.*
+> **High-level abstractions must not depend on low-level implementations.**  
+> Implementations exist to realize decisions — not to make them.
 
-If you have ever felt that AI-generated code “works” but your system slowly loses control,
-this document is written for you.
+However, in today’s *common AI coding usage patterns*, this dependency is quietly reversed.
 
 ---
 
-## What This Document Is
+## How Dependency Inversion Gets Broken
 
-This repository contains a **methodology-level guide** for using AI in real engineering work.
+In typical AI-assisted workflows:
 
-It is:
+- Architectural decisions are **implicitly made during implementation**
+- AI “helpfully” resolves structural questions while writing code
+- High-level abstractions are **shaped by local implementation convenience**
 
-- A design-first AI coding paradigm
-- A disciplined workflow for medium-to-large systems
-- A way to prevent semantic drift, architectural decay, and responsibility loss
+This means:
 
-It is **not**:
+> **Low-level implementation is deciding high-level design.**
 
-- A prompt collection
-- A tool comparison
-- A tutorial for beginners
-- A claim that AI can replace engineers
+That is a direct, structural violation of DIP.
 
-Vibe + Coding assumes that **engineering judgment remains human-owned**.
+This is not a usage mistake by individual engineers.  
+It is a **default outcome** of allowing design judgment to occur during execution.
 
----
-
-## The Core Idea (In One Paragraph)
-
-Traditional “Vibe Coding” mixes thinking and execution inside a single AI conversation.
-This works for small tasks, but collapses at scale.
-
-**Vibe + Coding forcibly splits this workflow into two isolated phases:**
-
-- **Vibe**: Humans and AI collaborate to think, design, model, and write documents
-- **Coding**: AI executes strictly according to frozen documents and tests
-
-The two phases **do not share context**.
-They communicate **only through documentation and tests**.
-
-Once this separation is broken, the paradigm collapses back to old-style Vibe Coding.
+The more capable the AI becomes, the faster this inversion happens.
 
 ---
 
-## Who This Is For
+## Why This Cannot Be Fixed by “Better Prompts”
 
-Vibe + Coding is designed for engineers who:
+Prompting, code review, specs, and tests all operate **after** the dependency has already been inverted.
 
-- Work on **medium-to-large codebases**
-- Care about **architecture, abstractions, and long-term maintainability**
-- Have experienced AI-generated code drifting away from original intent
-- Already understand why design, tests, and documentation matter
-- Want AI to reduce execution labor *without* losing system control
+Once implementation feedback is allowed to reshape abstraction:
+- design authority is lost,
+- decisions become implicit,
+- and responsibility becomes untraceable.
 
-Typical readers include:
-
-- Senior / Staff / Principal Engineers
-- Tech Leads and Architects
-- Engineers building internal platforms, frameworks, or infrastructure
-- Engineers experimenting seriously with AI-assisted development
+No amount of intelligence can fix a broken dependency direction.
 
 ---
 
-## Who This Is NOT For
+## What Vibe + Coding Actually Does
 
-This methodology is **not a good fit** if you are primarily working on:
+**Vibe + Coding is not about using AI more carefully.**  
+It is about **putting AI back into a dependency-legal position**.
 
-- One-off scripts or throwaway tools
-- Strongly exploratory or research-heavy problems
-- UI/UX-driven front-end experimentation
-- Performance tuning or algorithm discovery
-- Legacy “spaghetti” systems where design cannot realistically be frozen
+### 1. Vibe Writing (Decision Phase)
 
-In these cases, the cost of documentation and freezing decisions often outweighs the benefits.
+AI is used *before implementation* to:
+- explore architecture,
+- surface trade-offs,
+- challenge assumptions.
 
----
+AI has **advisory power only**.  
+Humans make the final decisions.
 
-## How to Read This Guide
+The output is a **design document** that explicitly freezes high-level abstractions.
 
-This guide is structured deliberately.
-**Do not jump directly to prompts or examples.**
-
-A recommended reading order:
-
-1. **Introduction**
-   Understand the problem this paradigm addresses.
-
-2. **Chapter 1 — Design Philosophy**
-   Learn the engineering assumptions behind Vibe + Coding.
-
-3. **Chapter 2 — Mental Model**
-   This is critical.
-   If you disagree with the role separation here, the rest will not work.
-
-4. **Chapter 3 — Methodology (Vibe)**
-   How to think, align, refine, and freeze design decisions.
-
-5. **Chapter 4 — Execution Workflow (Coding)**
-   How frozen design becomes constrained, auditable code.
-
-6. **Chapter 5 — Illustrative Walkthrough**
-   A schematic example to show flow, not copy-paste solutions.
-
-7. **Failure Modes & Trade-offs**
-   Learn when *not* to use this paradigm, and how it degrades.
-
-8. **Conclusion**
-   Revisit the core stance.
-
-This is not a document to skim.
-It is a framework to internalize.
+At this point, dependency direction is locked.
 
 ---
 
-## How to Use This in Practice
+### 2. Task Specifications (Authorization Interface)
 
-You do **not** need to adopt everything at once.
+Frozen design decisions are translated into **task specifications**.
 
-You can start by:
+These documents define:
+- what may be implemented,
+- what must not change,
+- and what completion means.
 
-- Separating “design chats” from “implementation chats”
-- Writing minimal design docs before letting AI code
-- Forcing test-first execution for AI-generated code
-- Explicitly freezing decisions before implementation
-
-Over time, this naturally evolves into the full Vibe + Coding workflow.
+They are not suggestions.  
+They are **execution authorizations**.
 
 ---
 
-## A Final Warning (And a Promise)
+### 3. AI Coding (Execution Phase)
 
-Vibe + Coding will not make engineering easier.
+The Coding Agent operates only within the task specification.
 
-It will:
+It is free to:
+- choose implementation details,
+- resolve local technical decisions.
 
-- Increase upfront thinking
-- Slow down the start of projects
-- Force uncomfortable clarity
+It is not allowed to:
+- reinterpret architecture,
+- expand scope,
+- or revise abstractions.
 
-But in return, it offers something rare in AI-assisted development:
+Implementation depends on abstraction — never the other way around.
 
-> **A way to scale without losing control.**
+---
 
-If you are looking for speed hacks, this is not the right document.
+### 4. Audit (Dependency Enforcement)
 
-If you are looking for a way to remain the owner of your system
-while letting AI do the work it is actually good at —
+An independent Audit Agent compares:
+- what was implemented,
+- against what was authorized.
 
-**Welcome to Vibe + Coding.**
+It answers one question only:
+
+> **Did implementation violate the frozen abstraction?**
+
+Audit exists because **DIP enforcement cannot rely on trust or intent**.
+
+---
+
+## Not a Linear Workflow
+
+This structure is recursive and composable:
+- one design round can feed the next,
+- tasks can be grouped or delayed,
+- audits can occur at module boundaries.
+
+What never changes is **direction**:
+- abstraction flows downward,
+- implementation flows upward,
+- responsibility remains traceable.
+
+---
+
+## One-Line Definition
+
+> **Vibe + Coding is a structural correction to AI Coding:  
+> it restores the Dependency Inversion Principle by moving design decisions out of implementation and enforcing them through explicit documentation and audit.**
+
+Or, more bluntly:
+
+> **Vibe + Coding = Vibe Writing + AI Coding —  
+> with dependency direction enforced.**
