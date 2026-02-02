@@ -5,7 +5,7 @@ Licensed under CC BY-NC-ND 4.0.
 Vibe + Coding — Version 0
 
 # Vibe + Coding  
-**Fixing AI Coding by Restoring Dependency Inversion**
+**Vibe Plus Coding (VPC) = verdict frozen, permission explicit, context isolated**
 
 ## The Real Problem with AI Coding at Scale
 
