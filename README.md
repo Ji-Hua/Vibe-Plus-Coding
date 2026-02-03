@@ -5,7 +5,8 @@ Licensed under CC BY-NC-ND 4.0.
 Vibe + Coding — Version 0
 
 # Vibe + Coding  
-**Vibe Plus Coding (VPC) = verdict frozen, permission explicit, context isolated**
+
+VPC = Verdict + Permission + Boundary Control
 
 ## The Real Problem with AI Coding at Scale
 
